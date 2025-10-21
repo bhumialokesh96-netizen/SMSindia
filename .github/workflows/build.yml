@@ -17,11 +17,18 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'   # <-- this was missing
+          distribution: 'temurin'
           java-version: '17'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
+      - name: Make gradlew executable (if present)
+        run: |
+          if [ -f ./gradlew ]; then
+            chmod +x ./gradlew
+            echo "Gradlew found and made executable"
+          else
+            echo "Error: './gradlew' not found in repository root. Please add the Gradle wrapper files (gradlew, gradlew.bat, and gradle/wrapper/) to the project root and commit them."
+            exit 1
+          fi
 
       - name: Build with Gradle
         run: ./gradlew build
