@@ -20,13 +20,14 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Make gradlew executable (if present)
+      - name: Ensure Gradle wrapper permissions
         run: |
           if [ -f ./gradlew ]; then
             chmod +x ./gradlew
-            echo "Gradlew found and made executable"
+            chmod -R 755 ./gradle/wrapper
+            echo "Gradle wrapper permissions set"
           else
-            echo "Error: './gradlew' not found in repository root. Please add the Gradle wrapper files (gradlew, gradlew.bat, and gradle/wrapper/) to the project root and commit them."
+            echo "Error: './gradlew' not found. Please add Gradle wrapper files."
             exit 1
           fi
 
