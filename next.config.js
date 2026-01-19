@@ -45,9 +45,9 @@ const nextConfig = {
   },
   
   // Enable experimental features for better performance
-  experimental: {
-    optimizeCss: true,
-  },
+  // experimental: {
+  //   optimizeCss: true,
+  // },
   
   // Output configuration
   output: 'standalone',

@@ -1,10 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import Script from 'next/script'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
@@ -65,7 +62,7 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body className={inter.className}>
+      <body className="font-sans">
         <div className="min-h-screen flex flex-col">
           <header className="bg-blue-600 text-white shadow-md">
             <nav className="container mx-auto px-4 py-4">
